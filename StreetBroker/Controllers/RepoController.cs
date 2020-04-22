@@ -23,7 +23,7 @@ namespace StreetBroker.Controllers
 
         // GET api/repo/get
         [HttpGet("get")]
-        public IActionResult GetRepo()
+        public IActionResult GetRepos()
         {
             List<RepoOrder> repoOrders = _repo.GetRepoOrders();
             return Ok(repoOrders);

@@ -29,6 +29,8 @@ namespace StreetBroker
 
             // Add our PostgreSQL Repositories (scoped to each request)
             services.AddScoped<IRepoRepository, RepoRepository>();
+            services.AddScoped<IDealerRepository, DealerRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
 
             services.AddControllers();
         }

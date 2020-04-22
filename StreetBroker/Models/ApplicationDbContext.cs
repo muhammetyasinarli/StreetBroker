@@ -14,6 +14,8 @@ namespace StreetBroker.Models
             : base(options) 
         {}
         public DbSet<RepoOrder> RepoOrders { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Dealer> Dealers { get; set; }
 
     }
 }

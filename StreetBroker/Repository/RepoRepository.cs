@@ -42,7 +42,6 @@ namespace StreetBroker.Repository
 
         public bool UpdateRepoOrder(RepoOrder repoOrder)
         {
-            //Will update all properties of the Customer
             _context.RepoOrders.Attach(repoOrder);
             _context.Entry(repoOrder).State = EntityState.Modified;
             return _context.SaveChanges() > 0;
