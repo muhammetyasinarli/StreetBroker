@@ -4,16 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using StreetBroker.Common;
 
 namespace StreetBroker.Models
 {
     [Table(name: "dealer", Schema = "cor")]
-    public class Dealer: IBaseEntity
+    public class Dealer: BaseEntity
     {
+
         [Key]
         [Column(name: "id", Order = 1)]
-        [Required]
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public long Id { get; set; }
         [Column(name: "first_name", Order = 2)]
         [MaxLength(500)]
         [Required]

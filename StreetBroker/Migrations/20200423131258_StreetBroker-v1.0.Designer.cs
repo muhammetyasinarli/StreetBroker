@@ -10,8 +10,8 @@ using StreetBroker.Models;
 namespace StreetBroker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200422121320_StreetBroker-v1.2")]
-    partial class StreetBrokerv12
+    [Migration("20200423131258_StreetBroker-v1.0")]
+    partial class StreetBrokerv10
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,10 +23,10 @@ namespace StreetBroker.Migrations
 
             modelBuilder.Entity("StreetBroker.Models.Customer", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id")
-                        .HasColumnType("integer")
+                        .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Address")
@@ -44,8 +44,8 @@ namespace StreetBroker.Migrations
                         .HasColumnType("character varying(250)")
                         .HasMaxLength(250);
 
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnName("create_date")
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnName("created_date")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Email")
@@ -71,6 +71,10 @@ namespace StreetBroker.Migrations
                         .HasColumnType("character varying(250)")
                         .HasMaxLength(250);
 
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnName("modified_date")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnName("phone_number")
@@ -79,10 +83,6 @@ namespace StreetBroker.Migrations
                     b.Property<byte>("RecordStatus")
                         .HasColumnName("record_status")
                         .HasColumnType("smallint");
-
-                    b.Property<DateTime>("UpdateDate")
-                        .HasColumnName("update_date")
-                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("Zip")
                         .HasColumnName("zip")
@@ -95,14 +95,14 @@ namespace StreetBroker.Migrations
 
             modelBuilder.Entity("StreetBroker.Models.Dealer", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id")
-                        .HasColumnType("integer")
+                        .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnName("create_date")
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnName("created_date")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Email")
@@ -122,6 +122,10 @@ namespace StreetBroker.Migrations
                         .HasColumnType("character varying(250)")
                         .HasMaxLength(250);
 
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnName("modified_date")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnName("phone_number")
@@ -130,10 +134,6 @@ namespace StreetBroker.Migrations
                     b.Property<byte>("RecordStatus")
                         .HasColumnName("record_status")
                         .HasColumnType("smallint");
-
-                    b.Property<DateTime>("UpdateDate")
-                        .HasColumnName("update_date")
-                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 
@@ -152,8 +152,8 @@ namespace StreetBroker.Migrations
                         .HasColumnName("amount")
                         .HasColumnType("numeric(18,2)");
 
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnName("create_date")
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnName("created_date")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long>("CustomerId")
@@ -179,6 +179,10 @@ namespace StreetBroker.Migrations
                     b.Property<DateTime>("Maturity")
                         .HasColumnName("maturity")
                         .HasColumnType("Date");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnName("modified_date")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<decimal>("NetInterestAmount")
                         .HasColumnName("net_interest_amount")
@@ -207,10 +211,6 @@ namespace StreetBroker.Migrations
                     b.Property<decimal>("TaxAmount")
                         .HasColumnName("tax_amount")
                         .HasColumnType("numeric(18,2)");
-
-                    b.Property<DateTime>("UpdateDate")
-                        .HasColumnName("update_date")
-                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 

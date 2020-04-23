@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StreetBroker.Models;
 using Microsoft.EntityFrameworkCore;
-using StreetBroker.Repository;
 
 namespace StreetBroker
 {
@@ -26,11 +25,6 @@ namespace StreetBroker
                 AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
-
-            // Add our PostgreSQL Repositories (scoped to each request)
-            services.AddScoped<IRepoRepository, RepoRepository>();
-            services.AddScoped<IDealerRepository, DealerRepository>();
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
 
             services.AddControllers();
         }

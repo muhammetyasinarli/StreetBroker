@@ -4,15 +4,21 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using StreetBroker.Common;
 
 namespace StreetBroker.Models
 {
     [Table(name:"repo_order",Schema ="repo")]
     public class RepoOrder: BaseOrder
     {
+        public RepoOrder()
+        {
+            OrderStatus = OrderStatus.New;
+        }
+
         [Key]
         [Column(name:"id", Order =1)]
-        [Required]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
         [Column(name: "net_interest_rate", TypeName = "numeric(5,2)", Order = 3)]
         [Required]

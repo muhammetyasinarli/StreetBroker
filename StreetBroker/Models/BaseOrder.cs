@@ -8,7 +8,7 @@ using StreetBroker.Common;
 
 namespace StreetBroker.Models
 {
-    public class BaseOrder: IBaseEntity
+    public class BaseOrder: BaseEntity
     {
         [Column(name: "dealer_id")]
         [Required]

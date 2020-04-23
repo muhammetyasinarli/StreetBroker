@@ -8,16 +8,23 @@ using StreetBroker.Common;
 
 namespace StreetBroker.Models
 {
-    public class IBaseEntity
+    public abstract class BaseEntity
     {
+        public BaseEntity()
+        {
+            CreatedDate = DateTime.Now;
+            ModifiedDate = DateTime.Now;
+            RecordStatus = RecordStatus.Active;
+        }
+
         [Column(name: "record_status")]
         [Required]
         public RecordStatus RecordStatus { get; set; }
-        [Column(name: "create_date")]
+        [Column(name: "created_date")]
         [Required]
-        public DateTime CreateDate { get; set; }
-        [Column(name: "update_date")]
+        public DateTime CreatedDate { get; set; }
+        [Column(name: "modified_date")]
         [Required]
-        public DateTime UpdateDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }
